@@ -103,6 +103,7 @@ window.addEventListener('load', () => {
 			if (!pattern[0].test(pass)) {
 				failed_patterns.add(pattern[1]);
 				output.textContent = pattern[2];
+				evil.value = '';
 				return false;
 			}
 		}
@@ -110,12 +111,14 @@ window.addEventListener('load', () => {
 		if (failed_length !== 2 && pass.length >= 10) {
 			failed_length = 1;
 			output.textContent = 'Password must not exceed 10 character limit';
+			evil.value = '';
 			return false;
 		}
 
 		if (failed_length !== 1 && pass.length < 10) {
 			failed_length = 2;
 			output.textContent = 'Password must be at least 10 characters long';
+			evil.value = '';
 			return false;
 		}
 
