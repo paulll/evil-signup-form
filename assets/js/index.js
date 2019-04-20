@@ -61,6 +61,7 @@ window.addEventListener('load', () => {
 
 	const failed_patterns = new Set;
 	let failed_email = false;
+	let failed_length = 0;
 
 	link.onclick = (e) => {
 		link.textContent = randomItem(not_exist);
@@ -104,6 +105,18 @@ window.addEventListener('load', () => {
 				output.textContent = pattern[2];
 				return false;
 			}
+		}
+
+		if (failed_length !== 2 && pass.length >= 10) {
+			failed_length = 1;
+			output.textContent = 'Password must not exceed 10 character limit';
+			return false;
+		}
+
+		if (failed_length !== 1 && pass.length < 10) {
+			failed_length = 2;
+			output.textContent = 'Password must be at least 10 characters long';
+			return false;
 		}
 
 		output.textContent = 'Welcome to the club, buddy!';
