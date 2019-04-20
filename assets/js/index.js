@@ -106,7 +106,12 @@ window.addEventListener('load', () => {
 			}
 		}
 
-		output.textContent = 'Welcome to the club, buddy';
+		output.textContent = 'Welcome to the club, buddy!';
+
+		setTimeout(() => {
+			document.location.href = 'https://github.com/paulll/evil-signup-form';
+		}, 1400);
+
 		return false;
 	};
 });
