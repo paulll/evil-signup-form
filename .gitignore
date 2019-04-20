@@ -1,0 +1,11 @@
+# static site output
+site
+
+# node.js
+node_modules
+
+# serverless framework local files
+.serverless
+
+# backup files
+*~

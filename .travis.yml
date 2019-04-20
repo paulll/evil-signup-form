@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "node"
+cache: npm
+before_script:
+  - npm ci
+script: gulp
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  target-branch: gh-pages
+  local-dir: site
+  on:
+    branch: master
+

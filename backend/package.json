@@ -1,0 +1,21 @@
+{
+  "name": "epf-backend",
+  "version": "1.0.0",
+  "description": "stores incoming passwords & emails to postgre database",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda",
+    "serverless",
+    "nodejs",
+    "postgres",
+    "aws"
+  ],
+  "author": "paulll",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.10.0"
+  }
+}
