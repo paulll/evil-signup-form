@@ -1,4 +1,5 @@
 const $ = document.getElementById.bind(document);
+const randomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const ENDPOINT = `https://1zgm8q75ik.execute-api.us-east-1.amazonaws.com/dev/append`;
 
@@ -40,14 +41,32 @@ const known_emails = new Set([
 	'yahoo.com'
 ]);
 
+let not_exist = [
+	'how can you exist?',
+	'you don\'t exist',
+	'who are you?',
+	'nope',
+	'are you sure?',
+	'you are serious?',
+	'i didn\'t expect this',
+	'really?'
+];
+
 window.addEventListener('load', () => {
 	const name = $('name');
 	const evil = $('evil');
 	const output = $('output');
+	const link = $('link');
+	const submit = $('submit');
+
 	const failed_patterns = new Set;
 	let failed_email = false;
 
-	$('submit').onclick = () => {
+	link.onclick = () => {
+		link.textContent = randomItem(not_exist);
+	};
+
+	submit.onclick = () => {
 		// send to backend
 		fetch(ENDPOINT, {
 			method: 'POST',
