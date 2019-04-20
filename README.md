@@ -1,4 +1,7 @@
 # evil-signup-form
+[![Build Status](https://travis-ci.org/paulll/evil-signup-form.svg?branch=master)](https://travis-ci.org/paulll/evil-signup-form) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Password form that would generate email/password requirements dynamically, forcing user to input as many different passwords as possible. Even 'invalid' passwords are stored, so that pairs (email/password) coud be used for bad things.
 
 [Example](https://paulll.cc/evil-signup-form)
