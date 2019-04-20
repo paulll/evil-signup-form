@@ -80,7 +80,7 @@ window.addEventListener('load', () => {
 		const mail = name.value.split('@').pop();
 
 		if (name.value.split('@').length !== 2) {
-			output.textContent = 'Invaild email';
+			output.textContent = 'Invalid email';
 			return false;
 		}
 
