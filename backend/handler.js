@@ -17,3 +17,20 @@ module.exports.append = async (event) => {
 
 	return { statusCode: 200,  body: "{}" };
 };
+
+module.exports.show = async () => {
+	if (!connected)
+		await connect_promise;
+	connected = true;
+
+	// todo: use pug template for this
+	try {
+		const data = await client.query({text: 'SELECT * FROM public.logs LIMIT 500', rowMode: 'array'});
+		const table = data.rows.map(row => `<tr>${row.map(e => `<td>${e}</td>`).join('')}</tr>`).join('');
+		const body = `<!DOCTYPE html><html><body><table>${table}</table></body></html>`;
+		return {statusCode: 200, body, headers: {"Content-Type": "text/html"}}
+	} catch (e) {
+		return {statusCode: 200, body: require('util').inspect(e)}
+	}
+
+};

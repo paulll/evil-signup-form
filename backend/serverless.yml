@@ -5,6 +5,17 @@ provider:
   runtime: nodejs8.10
 
 functions:
+  show:
+    handler: handler.show
+    environment:
+      PGHOST: ${file(~/secure/elephantsql.yml):PGHOST}
+      PGUSER: ${file(~/secure/elephantsql.yml):PGUSER}
+      PGDATABASE: ${file(~/secure/elephantsql.yml):PGDATABASE}
+      PGPASSWORD: ${file(~/secure/elephantsql.yml):PGPASSWORD}
+    events:
+    - http:
+        path: /show
+        method: get
   append:
     handler: handler.append
     environment:

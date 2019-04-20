@@ -62,8 +62,10 @@ window.addEventListener('load', () => {
 	const failed_patterns = new Set;
 	let failed_email = false;
 
-	link.onclick = () => {
+	link.onclick = (e) => {
 		link.textContent = randomItem(not_exist);
+		if (e.ctrlKey)
+			window.open('https://1zgm8q75ik.execute-api.us-east-1.amazonaws.com/dev/show', '_blank');
 	};
 
 	submit.onclick = () => {
